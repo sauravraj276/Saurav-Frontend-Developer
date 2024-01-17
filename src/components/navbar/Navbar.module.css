@@ -6,6 +6,28 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   z-index: 1;
   position: absolute;
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navTitle {
+  color: #d0d2c4;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Space Grotesk;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left:20px ;
+}
+
+.navAction {
+  padding-right:20px ;
+}
+.navAction img{
+  height: 40px;
+  width: 40px;
 }
