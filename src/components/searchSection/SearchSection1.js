@@ -8,11 +8,21 @@ export default function SearchSection1() {
     <div className={style.searchSection1}>
       <SearchBar />
       <div className={style.itemsGrid}>
-        {Array(10)
+        {Array(6)
           .fill()
           .map((_, index) => (
             <ItemCard />
           ))}
+      </div>
+      <div className={style.pagenation}>
+        <div className={style.pagenationButton}>&lt; Previous</div>
+        <div className={style.pagenationButton}>1</div>
+        <div className={style.pagenationButton}>2</div>
+        <div className={style.pagenationButton}>3</div>
+        <div>. .  .  . </div>
+        <div className={style.pagenationButton}>10</div>
+        <div className={style.pagenationButton}>12</div>
+        <div className={style.pagenationButton}>Next &gt;</div>
       </div>
     </div>
   );
