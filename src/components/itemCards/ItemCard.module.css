@@ -1,0 +1,62 @@
+.itemCard {
+  height: 400px;
+  width: 275px;
+  background-color: azure;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.itemCard img {
+  height: 75%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cardInfo {
+  font-family: Space Mono;
+  padding: 10px;
+}
+
+.idStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+  align-items: center;
+}
+.idStatus p {
+  color: #f33131;
+  font-family: Space Mono;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.idStatus p:first-child {
+  color: #000;
+  font-family: Space Mono;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.itemType{
+    color: #000;
+font-family: Space Mono;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 5px 5px 0px 5px;
+}
+.lounchDate{
+    color: #000;
+font-family: Space Mono;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+padding-inline: 5px;
+}
+

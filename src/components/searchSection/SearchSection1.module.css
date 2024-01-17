@@ -2,10 +2,20 @@
   background-image: url("../../assets/images/banner2.png");
   background-size: cover;
   background-position: center;
-  height: 1200px;
-  filter: grayscale(100%);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-inline: 10vw;
   
+}
+
+.itemsGrid {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 100px;
 }

@@ -10,7 +10,7 @@
 .searchDropdown {
   border-radius: 9px 0 0 9px;
   background: #343434;
-  height: 100%;
+  height: 50px;
   padding-inline: 20px;
   display: flex;
   flex-direction: row;
