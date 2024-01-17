@@ -1,0 +1,8 @@
+.searchSection1 {
+  background-image: url("../../assets/images/banner2.png");
+  background-size: cover;
+  background-position: center;
+  height: 1200px;
+  width: 100vw;
+  filter: grayscale(100%);
+}
