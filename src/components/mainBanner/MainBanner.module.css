@@ -1,0 +1,8 @@
+.mainbanner{
+    background-image: url("../../assets/images/banner1.png");
+    background-size:cover;
+    height: 100vh;
+    width: 100vw;
+    
+    
+}
