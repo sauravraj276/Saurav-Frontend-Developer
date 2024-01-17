@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./MainBanner.module.css";
+import scrollDownIcon from "../../assets/icons/scroll_down.svg"
 
 export default function MainBanner() {
   return (
@@ -8,7 +9,10 @@ export default function MainBanner() {
         <p className={style.mainTitle}>EXPLOREX</p>
         <p className={style.mainDesc}>Discover SpaceX DATA effortlessly with our API-powered site.</p>
       </div>
-      <div className="scrollDown"></div>
+      <div className={style.scrollDown}>
+<p>SCROLL DOWN</p>
+<img src={scrollDownIcon}></img>
+      </div>
     </div>
   );
 }
