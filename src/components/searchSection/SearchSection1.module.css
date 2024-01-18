@@ -63,6 +63,11 @@
   padding-inline: 5px;
   overflow-x: hidden;
 }
+.itemsGrid {
+  padding: 10px;
+  padding-block: 40px;
+  gap: 20px;
+}
 
   .pagenation {
     gap: 10px;
