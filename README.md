@@ -12,6 +12,7 @@ ExploreX is a React web application designed to showcase SpaceX data, focusing o
 - [License](#license)
 
 ## Demo
+Watch the demo of ExploreX Desktop -> [video](https://drive.google.com/file/d/1xkfE_mJ0Q-4oYoImupRJ58wsMToaC2GT/view?usp=sharing)
 
 
 ### Screenshots
