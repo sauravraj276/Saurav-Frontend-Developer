@@ -47,10 +47,16 @@
 }
 
 .activePage{
-  background-color: white;
-  color: #000;
+  background-color:grey;
+  border: white 1px solid;
+  cursor:default;
 
 }
+.pagenationButton:hover {
+  transform: scale(1);
+}
+
+
 
 @media only screen and (max-width: 768px){
 .searchSection1{

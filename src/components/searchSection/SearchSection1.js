@@ -3,16 +3,15 @@ import style from "./SearchSection1.module.css";
 import SearchBar from "../searchBar/SearchBar";
 import ItemCard from "../itemCards/ItemCard";
 import { useCapsule } from "../../context/CapsuleContext";
+import { scrollToElement } from "../../utils";
 
 export default function SearchSection1() {
   const { capsules, totalPages, currentPage, setCurrentPage } = useCapsule();
-  const [activePage, setActivePage] = useState(1);
-
-  useEffect(() => {}, [activePage]);
 
   const navigateToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
+    if (page >= 1 && page <= totalPages && currentPage != page) {
       setCurrentPage(page);
+      scrollToElement("searchsection");
     }
   };
 
@@ -27,7 +26,9 @@ export default function SearchSection1() {
 
       <div className={style.pagenation}>
         <div
-          className={style.pagenationButton}
+          className={`${style.pagenationButton} ${
+            currentPage == 1 && style.activePage
+          }`}
           onClick={() => navigateToPage(currentPage - 1)}
         >
           &lt; Previous
@@ -36,7 +37,7 @@ export default function SearchSection1() {
           <div
             key={index + 1}
             className={`${style.pagenationButton} ${
-              activePage === index + 1 ? style.activePage : ""
+              currentPage === index + 1 ? style.activePage : ""
             }`}
             onClick={() => navigateToPage(index + 1)}
           >
@@ -44,7 +45,9 @@ export default function SearchSection1() {
           </div>
         ))}
         <div
-          className={style.pagenationButton}
+          className={`${style.pagenationButton} ${
+            currentPage == totalPages && style.activePage
+          }`}
           onClick={() => navigateToPage(currentPage + 1)}
         >
           Next &gt;
