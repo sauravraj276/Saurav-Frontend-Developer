@@ -25,15 +25,24 @@
   justify-content: space-between;
 
   align-items: center;
-}
-.idStatus p {
-  color: #f33131;
+  color: green;
   font-family: Space Mono;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
+.status_unknown {
+  color: yellow
+
+}
+.status_retired {
+  color:#f33131;
+}
+.status_destroyed {
+  color:grey;
+}
+
 .idStatus p:first-child {
   color: #000;
   font-family: Space Mono;
@@ -58,5 +67,19 @@
   font-weight: 700;
   line-height: normal;
   padding-inline: 5px;
+}
+
+@media only screen and (max-width: 768px){
+  .itemCard {
+    height: 400px;
+    width: 175px;
+    border-radius: 10px;
+  }
+  .cardInfo {
+    font-family: Space Mono;
+    padding: 5px;
+  }
+  
+  
 }
 

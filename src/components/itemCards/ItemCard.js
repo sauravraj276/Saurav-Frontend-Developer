@@ -30,7 +30,19 @@ export default function ItemCard({ capsule }) {
         <div className={style.cardInfo}>
           <div className={style.idStatus}>
             <p>{capsule.capsuleSerial}</p>
-            <p>{capsule.status}</p>
+            <p
+              className={
+                capsule.status == "retired"
+                  ? style.status_retired
+                  : capsule.status == "unknown"
+                  ? style.status_unknown
+                  : capsule.status == "destroyed"
+                  ? style.status_destroyed
+                  : ""
+              }
+            >
+              {capsule.status}
+            </p>
           </div>
           <div className={style.itemType}>
             <p>{capsule.type}</p>
@@ -46,7 +58,6 @@ export default function ItemCard({ capsule }) {
                 className={modelStyle.dialog}
                 onClick={(e) => e.stopPropagation()}
               >
-                
                 <div className={modelStyle.imageSection}>
                   <img src={capsuleImage} alt="Capsule"></img>
                 </div>
@@ -76,7 +87,6 @@ export default function ItemCard({ capsule }) {
                   &times;
                 </div>
               </div>
-              
             </div>
           </div>
         )}
