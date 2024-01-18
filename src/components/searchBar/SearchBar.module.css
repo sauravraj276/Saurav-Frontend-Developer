@@ -5,18 +5,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
 }
 
 .searchDropdown {
   border-radius: 9px 0 0 9px;
-  background: #343434;
-  height: 50px;
-  padding-inline: 20px;
-  display: flex;
-  flex-direction: row;
 }
 
-.searchDropdown p {
+.searchDropdown select {
+  background: #343434;
   color: #d9d9d9;
   font-family: Space Mono;
   font-size: 2rem;

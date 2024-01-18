@@ -5,13 +5,13 @@ import ItemCard from "../itemCards/ItemCard";
 
 export default function SearchSection1() {
   return (
-    <div className={style.searchSection1}>
+    <div className={style.searchSection1} id="searchsection">
       <SearchBar />
       <div className={style.itemsGrid}>
         {Array(6)
           .fill()
           .map((_, index) => (
-            <ItemCard />
+            <ItemCard key={index}/>
           ))}
       </div>
       <div className={style.pagenation}>

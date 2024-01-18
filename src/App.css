@@ -68,3 +68,7 @@ table {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
+.link:hover{
+  cursor:pointer;
+}

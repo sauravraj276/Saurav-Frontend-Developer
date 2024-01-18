@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
+
   align-items: center;
 }
 .idStatus p {
@@ -41,22 +41,22 @@
   font-weight: 700;
 }
 
-.itemType{
-    color: #000;
-font-family: Space Mono;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-padding: 5px 5px 0px 5px;
+.itemType {
+  color: #000;
+  font-family: Space Mono;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 5px 5px 0px 5px;
 }
-.lounchDate{
-    color: #000;
-font-family: Space Mono;
-font-size: 1rem;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-padding-inline: 5px;
+.lounchDate {
+  color: #000;
+  font-family: Space Mono;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-inline: 5px;
 }
 

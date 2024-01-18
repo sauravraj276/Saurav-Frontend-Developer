@@ -4,6 +4,13 @@
   background-position: left;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content:space-between ;
+  object-fit: scale-down;
+
+}
+.mainbanner div{
+  height: 20vh;
 }
 .mainTitle {
   color: #d0d2c4;
@@ -15,11 +22,11 @@
   line-height: normal;
 }
 .mainText {
-  align-self: center;
-  justify-self: flex-start;
   text-align: start;
   margin: 20px;
   width: min-content;
+  justify-self: center;
+  align-self: flex-start;
 }
 .mainDesc {
   color: #ced2c0;
@@ -32,11 +39,11 @@
 }
 
 .scrollDown {
-  justify-self: center;
-  align-self: flex-end;
   display: flex;
   flex-direction: column;
   margin: 10px;
+  justify-self:last baseline;
+  align-self: center;
   
 }
 .scrollDown p {
