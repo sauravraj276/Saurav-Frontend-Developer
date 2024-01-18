@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import style from "./ItemCard.module.css";
 import modelStyle from "./ItemModel.module.css";
 import capsuleImage from "../../assets/images/capsule.png";
-import ItemDetails from "../itemDetails/ItemDetails";
 
-export default function ItemCard() {
+export default function ItemCard({ capsule }) {
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   const openDialog = () => {
@@ -15,20 +14,29 @@ export default function ItemCard() {
     setDialogOpen(false);
   };
 
+  const formattedDate = new Date(capsule.originalLaunch).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
+
   return (
     <>
       <div className={style.itemCard} onClick={openDialog}>
-        <img src={capsuleImage}></img>
+        <img src={capsuleImage} alt="Capsule"></img>
         <div className={style.cardInfo}>
           <div className={style.idStatus}>
-            <p>c101</p>
-            <p>retired</p>
+            <p>{capsule.capsuleSerial}</p>
+            <p>{capsule.status}</p>
           </div>
           <div className={style.itemType}>
-            <p>Dragon 1.0</p>
+            <p>{capsule.type}</p>
           </div>
           <div className={style.lounchDate}>
-            <p>December 8,2010</p>
+            <p>{formattedDate}</p>
           </div>
         </div>
         {isDialogOpen && (
@@ -38,29 +46,37 @@ export default function ItemCard() {
                 className={modelStyle.dialog}
                 onClick={(e) => e.stopPropagation()}
               >
+                
                 <div className={modelStyle.imageSection}>
-                  <img src={capsuleImage}></img>
+                  <img src={capsuleImage} alt="Capsule"></img>
                 </div>
                 <div className={modelStyle.detailsSection}>
                   <p className={modelStyle.capsuleSerial}>
-                    Capsule Serial: C101
+                    Capsule Serial: {capsule.capsuleSerial}
                   </p>
                   <div className="missions">
                     <div className={modelStyle.textBold}>Missions :</div>
-                    <div className={modelStyle.mission}>Missions :</div>
+                    {capsule.missions.map((mission, index) => (
+                      <div key={index} className={modelStyle.mission}>
+                        {mission.name} (Flight: {mission.flight})
+                      </div>
+                    ))}
                   </div>
                   <p>Details :</p>
-                  <p>Reentered after three weeks in orbit.</p>
-                  <p>Status : Retired</p>
-                  <p>Type : Dragon 1.0</p>
-                  <p>Capsule Id : dragon1</p>
-                  <p>Landings : 0</p>
-                  <p>Reuse Count : 0</p>
+                  <p>{capsule.details}</p>
+                  <p>Status : {capsule.status}</p>
+                  <p>Type : {capsule.type}</p>
+                  <p>Capsule Id : {capsule.capsuleId}</p>
+                  <p>Landings : {capsule.landings}</p>
+                  <p>Reuse Count : {capsule.reuseCount}</p>
                   <p>Original Launch :</p>
-                  <p>Date: December 8, 2010</p>
-                  <p>Time: 15:43:00 UTC</p>
+                  <p>Date: {formattedDate}</p>
+                </div>
+                <div className={modelStyle.closeButton} onClick={closeDialog}>
+                  &times;
                 </div>
               </div>
+              
             </div>
           </div>
         )}
