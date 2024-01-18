@@ -75,3 +75,22 @@
     
     }
 }
+
+@media only screen and (max-width: 768px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  
+  .mainDesc {
+    font-size: 1.2rem;
+  }
+
+  .scrollDown p {
+    font-size: 1rem;
+  }
+
+  .scrollDown img {
+    height: 25px;
+  }
+}

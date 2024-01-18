@@ -31,3 +31,16 @@
   height: 40px;
   width: 40px;
 }
+
+@media only screen and (max-width: 768px) {
+  .navTitle{
+    font-size: 2rem;
+  }
+  .nav {
+    height: 8vh;
+  }
+  .navAction img{
+    height: 25px;
+    width: 25px;
+  }
+}

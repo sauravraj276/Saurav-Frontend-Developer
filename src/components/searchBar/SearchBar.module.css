@@ -6,6 +6,7 @@
   flex-direction: row;
   align-items: center;
   overflow: hidden;
+  
 }
 
 .searchDropdown {
@@ -47,6 +48,10 @@ input::placeholder {
   line-height: normal;
   padding-left: 5px;
 }
+.searchInput input {
+  color: rgba(0, 0, 0, 0.73);
+}
+
 .searchAction {
   display: flex;
   align-items: center;
@@ -58,3 +63,31 @@ input::placeholder {
   width: 40px;
   align-self: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .searchBar {
+    margin: 10px;
+  }
+
+  .searchDropdown select {
+    font-size: 0.75rem;
+    padding: 8px;
+  }
+
+
+  .searchInput input,
+  input::placeholder {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .searchAction {
+    padding: 8px;
+  }
+
+  .searchAction img {
+    height: 20px;
+    width: 20px;
+  }
+}
+

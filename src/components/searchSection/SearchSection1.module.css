@@ -40,4 +40,38 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  cursor: pointer;
+}
+.pagenationButton:hover {
+  transform: scale(1.1);
+}
+
+.activePage{
+  background-color: white;
+  color: #000;
+
+}
+
+@media only screen and (max-width: 768px){
+.searchSection1{
+  padding-inline: 5px;
+}
+
+  .itemsGrid {
+    padding: 25px;
+    gap: 20px;
+  }
+  .pagenation {
+    gap: 10px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+  
+  }
+  
+  .pagenationButton {
+    padding: 2.5px 10px;
+    border-radius: 2px;
+    font-size: 1rem;
+  }
+  
 }
