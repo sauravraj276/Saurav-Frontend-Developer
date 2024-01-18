@@ -66,22 +66,22 @@ export default function ItemCard({ capsule }) {
                     Capsule Serial: {capsule.capsuleSerial}
                   </p>
                   <div className="missions">
-                    <div className={modelStyle.textBold}>Missions :</div>
+                    <p className={modelStyle.capsuleDetails}>Missions :</p>
                     {capsule.missions.map((mission, index) => (
-                      <div key={index} className={modelStyle.mission}>
+                      <p key={index} className={modelStyle.capsuleDetails}>
                         {mission.name} (Flight: {mission.flight})
-                      </div>
+                      </p>
                     ))}
                   </div>
-                  <p>Details :</p>
-                  <p>{capsule.details}</p>
-                  <p>Status : {capsule.status}</p>
-                  <p>Type : {capsule.type}</p>
-                  <p>Capsule Id : {capsule.capsuleId}</p>
-                  <p>Landings : {capsule.landings}</p>
-                  <p>Reuse Count : {capsule.reuseCount}</p>
-                  <p>Original Launch :</p>
-                  <p>Date: {formattedDate}</p>
+                  <p className={modelStyle.capsuleDetails}>Details :</p>
+                  <p className={modelStyle.capsuleDetails}>{capsule.details}</p>
+                  <p className={modelStyle.capsuleDetails}>Status : {capsule.status}</p>
+                  <p className={modelStyle.capsuleDetails}>Type : {capsule.type}</p>
+                  <p className={modelStyle.capsuleDetails}>Capsule Id : {capsule.capsuleId}</p>
+                  <p className={modelStyle.capsuleDetails}>Landings : {capsule.landings}</p>
+                  <p className={modelStyle.capsuleDetails}>Reuse Count : {capsule.reuseCount}</p>
+                  <p className={modelStyle.capsuleDetails}>Original Launch :</p>
+                  <p className={modelStyle.capsuleDetails}>Date: {formattedDate}</p>
                 </div>
                 <div className={modelStyle.closeButton} onClick={closeDialog}>
                   &times;

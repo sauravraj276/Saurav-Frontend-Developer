@@ -76,8 +76,8 @@
     width: 100%;
   }
   .itemCard {
-    height: 400px;
-    width: 175px;
+    height: 40vh;
+    width: 40vw;
     border-radius: 10px;
   }
   .cardInfo {
