@@ -8,85 +8,102 @@ export function useCapsule() {
 }
 
 export function CapsuleProvider({ children }) {
-  const [capsules, setCapsules] = useState([]);
-  const [staticCapsules, setStaticCapsules] = useState([]);
+  const [capsules, setCapsules] = useState([]); //stores all the searched capsules
+  const [pageCapsules, setPageCapsules] = useState([]); //data shown on the current page
+  const [staticCapsules, setStaticCapsules] = useState([]); //stores all the data of capsules
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading]=useState(false);
-  const [error,setError]=useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const searchCapsules = async (selectedFilter, searchInput) => {
     try {
-      const response = await fetch(
-        `https://api.spacexdata.com/v3/capsules?${selectedFilter}=${searchInput}`
-      );
-      console.log(response);
-      const data = await response.json();
-      const totalCount = parseInt(response.headers.get("spacex-api-count")) - 3;
-      const capsuleObjects = data.map(
-        (capsuleData) => new Capsule(capsuleData)
-      );
-      setCapsules(capsuleObjects);
-      console.log(capsuleObjects);
+      setLoading(true);
+      const searchTerm = searchInput.toLowerCase();
+      var filteredCapsules = false;
+      if (selectedFilter !== "all") {
+        filteredCapsules = staticCapsules.filter((capsule) => {
+          switch (selectedFilter) {
+            case "capsule_serial":
+              return capsule.capsuleSerial.toLowerCase().includes(searchTerm);
+            case "status":
+              return capsule.status.toLowerCase().includes(searchTerm);
+            case "type":
+              return capsule.type.toLowerCase().includes(searchTerm);
+            default:
+              return false;
+          }
+        });
+      } else {
+        filteredCapsules = staticCapsules.filter((capsule) => {
+          console.log(capsule.toString());
+          return capsule.data.toLowerCase().includes(searchTerm);
+        });
+      }
+
+      setCapsules(filteredCapsules);
+      const totalCount = filteredCapsules.length;
       setTotalPages(Math.ceil(totalCount / 6));
+      setCurrentPage(1);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+      setError("Error geting capsule Details");
       console.error("Error fetching capsule data:", error);
     }
   };
 
-  const fetchCapsules = async (page) => {
-    try {
-      const response = await fetch(
-        `https://api.spacexdata.com/v3/capsules?limit=${page == 1 ? 3 : 6}
-        &offset=${(page - 1) * 6}`
-      );
-
-      const data = await response.json();
-      const totalCount = parseInt(response.headers.get("spacex-api-count")) - 3;
-      const capsuleObjects = data.map(
-        (capsuleData) => new Capsule(capsuleData)
-      );
-      setCapsules(capsuleObjects);
-      console.log(capsuleObjects);
-      setStaticCapsules(capsuleObjects);
-      setTotalPages(Math.ceil(totalCount / 6));
-    } catch (error) {
-      console.error("Error fetching capsule data:", error);
-    }
-  };
   const fetchAllCapsules = async () => {
     try {
-      const response = await fetch(
-        `https://api.spacexdata.com/v3/capsules`
-      );
+      setLoading(true);
+      const response = await fetch(`https://api.spacexdata.com/v3/capsules`);
 
       const data = await response.json();
-      const totalCount = parseInt(response.headers.get("spacex-api-count")) - 3;
       const capsuleObjects = data.map(
         (capsuleData) => new Capsule(capsuleData)
       );
+      const totalCount = capsuleObjects.length;
       setCapsules(capsuleObjects);
-      console.log(capsuleObjects);
+      setPageCapsules(capsuleObjects.slice(0, 6));
       setStaticCapsules(capsuleObjects);
       setTotalPages(Math.ceil(totalCount / 6));
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+      setError("Error geting capsule Details");
+      console.error("Error fetching capsule data:", error);
+    }
+  };
+  const changePage = async (page) => {
+    try {
+      setLoading(true);
+      setPageCapsules(capsules.slice((page - 1) * 6, page * 6));
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setError("Error geting capsule Details");
       console.error("Error fetching capsule data:", error);
     }
   };
 
   useEffect(() => {
     fetchAllCapsules();
-    fetchCapsules(currentPage);
-  }, [currentPage]);
+  }, []);
+
+  useEffect(() => {
+    changePage(currentPage);
+  }, [currentPage, capsules]);
 
   return (
     <CapsuleContext.Provider
       value={{
-        capsules,
+        pageCapsules,
         totalPages,
         currentPage,
         setCurrentPage,
         searchCapsules,
+        loading,
+        error,
       }}
     >
       {children}

@@ -27,7 +27,7 @@ const SearchBar = () => {
         <select name="filter" onChange={handleFilterChange} value={selectedFilter}>
           <option value="all">All</option>
           <option value="capsule_serial">Capsule Serial</option>
-          <option value="capsule_id">Capsule ID</option>
+          <option value="type">Type</option>
           <option value="status">Status</option>
         </select>
       </div>

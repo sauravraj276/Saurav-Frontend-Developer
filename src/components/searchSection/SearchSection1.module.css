@@ -52,7 +52,7 @@
   cursor:default;
 
 }
-.pagenationButton:hover {
+.activePage:hover {
   transform: scale(1);
 }
 

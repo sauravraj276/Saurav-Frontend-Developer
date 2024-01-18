@@ -32,11 +32,11 @@ export default function ItemCard({ capsule }) {
             <p>{capsule.capsuleSerial}</p>
             <p
               className={
-                capsule.status == "retired"
+                capsule.status === "retired"
                   ? style.status_retired
-                  : capsule.status == "unknown"
+                  : capsule.status === "unknown"
                   ? style.status_unknown
-                  : capsule.status == "destroyed"
+                  : capsule.status === "destroyed"
                   ? style.status_destroyed
                   : ""
               }
@@ -51,46 +51,58 @@ export default function ItemCard({ capsule }) {
             <p>{formattedDate}</p>
           </div>
         </div>
-        {isDialogOpen && (
-          <div>
-            <div className={modelStyle.dialogBackdrop} onClick={closeDialog}>
-              <div
-                className={modelStyle.dialog}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className={modelStyle.imageSection}>
-                  <img src={capsuleImage} alt="Capsule"></img>
+      </div>
+      {isDialogOpen && (
+        <div>
+          <div className={modelStyle.dialogBackdrop} onClick={closeDialog}>
+            <div
+              className={modelStyle.dialog}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className={modelStyle.imageSection}>
+                <img src={capsuleImage} alt="Capsule"></img>
+              </div>
+              <div className={modelStyle.detailsSection}>
+                <p className={modelStyle.capsuleSerial}>
+                  Capsule Serial: {capsule.capsuleSerial}
+                </p>
+                <div className="missions">
+                  <p className={modelStyle.capsuleDetails}>Missions :</p>
+                  {capsule.missions.map((mission, index) => (
+                    <p key={index} className={modelStyle.capsuleDetails}>
+                      {mission.name} (Flight: {mission.flight})
+                    </p>
+                  ))}
                 </div>
-                <div className={modelStyle.detailsSection}>
-                  <p className={modelStyle.capsuleSerial}>
-                    Capsule Serial: {capsule.capsuleSerial}
-                  </p>
-                  <div className="missions">
-                    <p className={modelStyle.capsuleDetails}>Missions :</p>
-                    {capsule.missions.map((mission, index) => (
-                      <p key={index} className={modelStyle.capsuleDetails}>
-                        {mission.name} (Flight: {mission.flight})
-                      </p>
-                    ))}
-                  </div>
-                  <p className={modelStyle.capsuleDetails}>Details :</p>
-                  <p className={modelStyle.capsuleDetails}>{capsule.details}</p>
-                  <p className={modelStyle.capsuleDetails}>Status : {capsule.status}</p>
-                  <p className={modelStyle.capsuleDetails}>Type : {capsule.type}</p>
-                  <p className={modelStyle.capsuleDetails}>Capsule Id : {capsule.capsuleId}</p>
-                  <p className={modelStyle.capsuleDetails}>Landings : {capsule.landings}</p>
-                  <p className={modelStyle.capsuleDetails}>Reuse Count : {capsule.reuseCount}</p>
-                  <p className={modelStyle.capsuleDetails}>Original Launch :</p>
-                  <p className={modelStyle.capsuleDetails}>Date: {formattedDate}</p>
-                </div>
-                <div className={modelStyle.closeButton} onClick={closeDialog}>
-                  &times;
-                </div>
+                <p className={modelStyle.capsuleDetails}>Details :</p>
+                <p className={modelStyle.capsuleDetails}>{capsule.details}</p>
+                <p className={modelStyle.capsuleDetails}>
+                  Status : {capsule.status}
+                </p>
+                <p className={modelStyle.capsuleDetails}>
+                  Type : {capsule.type}
+                </p>
+                <p className={modelStyle.capsuleDetails}>
+                  Capsule Id : {capsule.capsuleId}
+                </p>
+                <p className={modelStyle.capsuleDetails}>
+                  Landings : {capsule.landings}
+                </p>
+                <p className={modelStyle.capsuleDetails}>
+                  Reuse Count : {capsule.reuseCount}
+                </p>
+                <p className={modelStyle.capsuleDetails}>Original Launch :</p>
+                <p className={modelStyle.capsuleDetails}>
+                  Date: {formattedDate}
+                </p>
+              </div>
+              <div className={modelStyle.closeButton} onClick={closeDialog}>
+                &times;
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

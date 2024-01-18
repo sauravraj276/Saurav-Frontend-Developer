@@ -8,6 +8,11 @@
   overflow: hidden;
 }
 
+.itemCard:hover{
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
 .itemCard img {
   height: 75%;
   width: 100%;
