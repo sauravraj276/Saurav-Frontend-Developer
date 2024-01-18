@@ -29,6 +29,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow:hidden
+}
+.imageSection img {
+  height: 100%;
+ width:100%;
+ object-fit: cover;
 }
 
 .detailsSection {
@@ -83,17 +89,21 @@
   }
 
   .imageSection {
-    height: 100%;
+    height: 50%;
     width: 100%;
   }
 
   .detailsSection {
     padding: 10px;
     width: 100%;
-    height: 100%;
+    height: 50%;
   }
   .capsuleSerial {
     font-size: 32px;
+  }
+
+  .capsuleDetails {
+    font-size: 1rem;
   }
 
   .closeButton {
