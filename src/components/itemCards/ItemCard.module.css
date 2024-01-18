@@ -33,7 +33,7 @@
   line-height: normal;
 }
 .status_unknown {
-  color: yellow
+  color: yellowgreen
 
 }
 .status_retired {
@@ -70,6 +70,11 @@
 }
 
 @media only screen and (max-width: 768px){
+
+  .itemCard img {
+    height: 75%;
+    width: 100%;
+  }
   .itemCard {
     height: 400px;
     width: 175px;
