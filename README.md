@@ -14,7 +14,7 @@ ExploreX is a React web application designed to showcase SpaceX data, focusing o
 Watch the demo of ExploreX Desktop [video](https://drive.google.com/file/d/1xkfE_mJ0Q-4oYoImupRJ58wsMToaC2GT/view?usp=sharing)
 
 ### Live Demo
-ExploreX is live! Check it out [here](https://explorex-psi.vercel.app/){:target="_blank"}.
+ExploreX is live! Check it out [here](https://explorex-psi.vercel.app/).
 
 ### Screenshots
 ![Main Banner](./screenshots/main_banner.png)
