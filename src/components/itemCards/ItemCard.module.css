@@ -6,11 +6,14 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border: 2px solid white;
 }
 
-.itemCard:hover{
+.itemCard:hover {
   transform: scale(1.02);
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  box-shadow: 0 0 15px black
 }
 
 .itemCard img {
@@ -38,14 +41,13 @@
   line-height: normal;
 }
 .status_unknown {
-  color: yellowgreen
-
+  color: yellowgreen;
 }
 .status_retired {
-  color:#f33131;
+  color: #f33131;
 }
 .status_destroyed {
-  color:grey;
+  color: grey;
 }
 
 .idStatus p:first-child {
@@ -74,8 +76,7 @@
   padding-inline: 5px;
 }
 
-@media only screen and (max-width: 768px){
-
+@media only screen and (max-width: 768px) {
   .itemCard img {
     height: 75%;
     width: 100%;
@@ -89,7 +90,4 @@
     font-family: Space Mono;
     padding: 5px;
   }
-  
-  
 }
-

@@ -25,7 +25,7 @@ export default function ItemCard({ capsule }) {
 
   return (
     <>
-      <div className={style.itemCard} onClick={openDialog}>
+      <li className={style.itemCard} onClick={openDialog}>
         <img src={capsuleImage} alt="Capsule"></img>
         <div className={style.cardInfo}>
           <div className={style.idStatus}>
@@ -51,7 +51,7 @@ export default function ItemCard({ capsule }) {
             <p>{formattedDate}</p>
           </div>
         </div>
-      </div>
+      </li>
       {isDialogOpen && (
         <div>
           <div className={modelStyle.dialogBackdrop} onClick={closeDialog}>
